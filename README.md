@@ -1,7 +1,7 @@
 # elixir-doc
 
-##Introducción
-###Modo Interactivo
+## Introducción
+### Modo Interactivo
 Una vez instalado Elixir, temos 2 nuevos ejecutables: iex, elixir and elixirc
 
 iex --> abre la consola interactiva
@@ -15,6 +15,6 @@ iex(1)> 2+10
 iex(2)>"hola"<>" mundo"
 "hola mundo"
 ```
-###Corriendo un script
+### Corriendo un script
 
 
