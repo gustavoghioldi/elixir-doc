@@ -92,11 +92,61 @@ true
 ### Strings
 Documentación oficial: https://hexdocs.pm/elixir/String.html
 
+```bash
+iex(1)> "Moño"
+"Moño"
+iex(2)> "Hola #{:mundo}"
+"Hola mundo"
+iex(3)> byte_size("moño")
+5
+iex(4)> String.length("moño")
+4
+iex(5)> byte_size("mono")    
+4
+iex(6)> String.upcase("moño")   
+"MOÑO"
+iex(7)> "hola" == 'hola' ##las comillas influyen sobre la igualdad
+false
+```
 
 ### funciones Anonimas
-
+```bash
+iex> suma = fn a, b -> a + b end
+#Function<12.71889879/2 in :erl_eval.expr/5>
+iex> suma.(1, 2)
+3
+iex> is_function(suma)
+true
+iex> is_function(suma, 2) # checkea si suma espera 2 argumentos
+true
+iex> is_function(suma, 1) # checkea si suma espera 1 argumento
+false
+iex> x2 = fn a -> suma.(a, a) end
+#Function<6.71889879/1 in :erl_eval.expr/5>
+iex> x2.(2)
+4
+```
 ### Listas
-
+documentación oficial: https://hexdocs.pm/elixir/List.html
+```bash
+iex> ["hola", :ok, 1, true]
+["hola", :ok, 1, true]
+iex> length [1, 2, 3, :false]
+4
+iex> lista = [1, 2, :x, false]
+[1, 2, :x, false]
+iex> hd lista
+1
+iex> tl lista
+[2, :x, false]
+iex> ["hola", :tail, 1.23] ++ [22, "moño"]
+["hola", :tail, 1.23, 22, "moño"]
+iex> ["hola", :tail, 1.23] -- [22, :tail] 
+["hola", 1.23]
+```
 ### Tuplas
 
+documentación oficial: https://hexdocs.pm/elixir/Tuple.html
+//TODO
 ### Listas o Tuplas?
+//TODO
