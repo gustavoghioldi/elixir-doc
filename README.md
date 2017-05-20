@@ -145,8 +145,81 @@ iex> ["hola", :tail, 1.23] -- [22, :tail]
 ["hola", 1.23]
 ```
 ### Tuplas
-
 documentación oficial: https://hexdocs.pm/elixir/Tuple.html
-//TODO
+como las tuplas las listas aceptan cualquier valor:
+```bash
+iex> {:ok, "hola"}
+{:ok, "hola"}
+iex> tuple_size {:ok, "hola"}
+2
+iex> elem({:ok, "hola"}, 1)
+"hola"
+iex> log = File.read("/var/log/mysql/error.log")
+{:ok,
+ "2017-05-17T19:37:12.615916Z 0 [Note] InnoDB: page_cleaner: 1000ms intended loop took 274882ms. The settings might not be optimal. (flushed=0 and evicted=0, during the time.)\n2017-05-17T20:58:07.784705Z 0 [Note] InnoDB: page_cleaner: 1000ms intended loop took 518550ms. The settings might not be optimal. (flushed=0 and evicted=0, during the time.)\n2017-05-18T00:04:12.759178Z 0 [Note] InnoDB: page_cleaner: 1000ms intended loop took 1935978ms. The settings might not be optimal. (flushed=0 and evicted=0, during the time.)\n"}
+iex> elem(log, 1)
+"2017-05-17T19:37:12.615916Z 0 [Note] InnoDB: page_cleaner: 1000ms intended loop took 274882ms. The settings might not be optimal. (flushed=0 and evicted=0, during the time.)\n2017-05-17T20:58:07.784705Z 0 [Note] InnoDB: page_cleaner: 1000ms intended loop took 518550ms. The settings might not be optimal. (flushed=0 and evicted=0, during the time.)\n2017-05-18T00:04:12.759178Z 0 [Note] InnoDB: page_cleaner: 1000ms intended loop took 1935978ms. The settings might not be optimal. (flushed=0 and evicted=0, during the time.)\n"
+iex> elem(log, 0)
+:ok
+```
 ### Listas o Tuplas?
 //TODO
+
+## Operaciones básicas
+
+***Manipulación de listas***
+
+```elixir
+iex> [1, 2, 3, 5] ++ [4, 3]
+[1, 2, 3, 5, 4, 3]
+iex> [1, 2, 5] -- [1, 2, 3]
+[5]
+```
+***Concatenación de Strings con "<>"***
+```elixir
+iex> "foo" <> "bar"
+"foobar"
+```
+
+***Operadores booleanos***
+and(&&), or(||), not(!):
+
+```elixir
+# or
+iex> 1 || true
+1
+iex> false || 11
+11
+
+# and
+iex> nil && 13
+nil
+iex> true && 17
+17
+
+# !
+iex> !true
+false
+iex> !1
+false
+iex> !nil
+true
+iex> 1 == 1
+true
+iex> 1 != 2
+true
+iex> 1 < 2
+true
+iex> 1 == 1.0
+true
+iex> 1 === 1.0
+false
+```
+
+para tener en cuenta:
+
+```elixir
+number < atom < reference < function < port < pid < tuple < map < list < bitstring
+```
+
+
